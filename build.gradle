@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.36'
+
+    testImplementation 'io.qameta.allure:allure-rest-assured:2.13.6'
+    testImplementation 'io.qameta.allure:allure-junit5:2.13.6'
+
+    testImplementation 'io.rest-assured:rest-assured:5.0.1'
+    implementation 'org.json:json:20210307'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+    testImplementation 'org.projectlombok:lombok:1.18.20'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+}
+
+test {
+    useJUnitPlatform()
+}
+

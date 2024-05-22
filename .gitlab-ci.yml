@@ -1,0 +1,17 @@
+image: ubuntu:latest
+
+variables:
+  CITY: "yekaterinburg"
+
+before_script:
+  - apt-get update
+  - apt-get install curl -y
+
+stages:
+  - info
+
+job Uno:
+  stage: info
+  tags: [docker]
+  script:
+    - curl wttr.in/$CITY
